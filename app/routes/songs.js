@@ -26,7 +26,7 @@ var pretender = Song.create({
 
 var SongCollection = Ember.Object.extend({
   content: [],
-  sortProperties: ['rating:desc'],
+  sortProperties: ['rating:asc'],
   sortedContent: Ember.computed.sort('content', 'sortProperties'),
 });
 
@@ -34,6 +34,8 @@ var songs = SongCollection.create();
 songs.get('content').pushObject(blackDog);
 songs.get('content').pushObject(yellowLedbetter);
 songs.get('content').pushObject(pretender);
+
+
 
 export default Ember.Route.extend({
   model: function () {
