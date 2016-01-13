@@ -2,6 +2,10 @@ import Ember from 'ember';
 
 var Band = Ember.Object.extend({
   name: '',
+
+  slug: Ember.computed('name', function() {
+    return this.get('name').dasherize();
+  })
 });
 
 var Song = Ember.Object.extend({
@@ -41,12 +45,13 @@ var BandsCollection = Ember.Object.extend({
 });
 
 var ledZeppelin = Band.create({ name: 'Led Zeppelin', songs: [blackDog] });
-var pearlJam = Band.create({ name: 'Pearl Jam', songs: [daughter,
-yellowLedbetter] });
-var fooFighters = Band.create({ name: 'Foo Fighters', songs:
-[pretender] });
+var pearlJam = Band.create({ name: 'Pearl Jam',
+  songs: [daughter, yellowLedbetter] });
+var fooFighters = Band.create({ name: 'Foo Fighters',
+  songs:[pretender] });
 
-var bands = [ledZeppelin, pearlJam, fooFighters];
+var bands = BandsCollection.create();
+bands.get('content').pushObjects([ledZeppelin, pearlJam, fooFighters]);
 
 
 export default Ember.Route.extend({
