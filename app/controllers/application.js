@@ -29,17 +29,18 @@ var SongCollection = Ember.Object.extend({
 var songs = SongCollection.create();
 
 songs.get('content').pushObjects([blackDog, yellowLedbetter,
-pretender]);
+  pretender
+]);
 
-window.songs = songs;
+// window.songs = songs;
 
-var alwaysWaiting = Song.create({
-  title: 'Always Waiting',
-  band: 'Kaya Project',
-  rating: 5
-});
+// var alwaysWaiting = Song.create({
+//   title: 'Always Waiting',
+//   band: 'Kaya Project',
+//   rating: 5
+// });
 
-window.newSong = alwaysWaiting;
+// window.newSong = alwaysWaiting;
 
 export default Ember.Controller.extend({
   songs: songs
