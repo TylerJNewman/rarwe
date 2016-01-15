@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  model: function () {
-    return this.modelFor('bands');
+  model: function(params) {
+    return this.store.findRecord('band', params.id);
   }
 });
